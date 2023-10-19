@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive images</title>
+  </head>
+  <body class="responsive-images">
+    <picture>
+      <source
+        media="(min-width: 1920px)"
+        srcset="images/responsive-images/1920.png"
+      />
+      <source
+        media="(min-width: 1440px)"
+        srcset="images/responsive-images/1440.png"
+      />
+      <source
+        media="(min-width: 1140px)"
+        srcset="images/responsive-images/1140.png"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="images/responsive-images/768.png"
+      />
+      <source
+        media="(min-width: 480px)"
+        srcset="images/responsive-images/480.png"
+      />
+      <source
+        media="(min-width: 320px)"
+        srcset="images/responsive-images/320.png"
+      />
+      <img
+        src="images/responsive-images/1920.png"
+        alt="пример адаптивного изображения"
+      />
+    </picture>
+    <!-- <img
+      src="images/responsive-images/1920.png"
+      alt="пример адаптивного изображения"
+      sizes="(min-width: 1140px) 768w"
+      srcset="
+        images/responsive-images/1920.png 1920w,
+        images/responsive-images/1440.png 1440w,
+        images/responsive-images/1140.png 1140w,
+        images/responsive-images/768.png   768w,
+        images/responsive-images/480.png   480w,
+        images/responsive-images/320.png   320w
+      "
+    /> -->
+    <div>
+      <h1>Как работают адаптивные изображения?</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam
+        commodi facere ut mollitia dolor sapiente voluptate fuga illum magni at
+        eos non aperiam a id, iste reiciendis illo, blanditiis quia. Tempore
+        mollitia saepe illo quibusdam qui id ipsum quidem harum similique alias
+        eveniet, cupiditate, dignissimos sapiente. Suscipit nesciunt aperiam
+        pariatur veniam dolore esse impedit soluta facere. Impedit dolore unde
+        velit? Itaque eum esse ut voluptate et cupiditate dignissimos animi
+        voluptatem soluta incidunt quibusdam est, eaque ipsum optio recusandae
+        autem facere quia saepe ipsa, enim exercitationem ducimus quisquam
+        fugiat reiciendis. Aut. Dignissimos perspiciatis, rerum praesentium iure
+        cumque quos optio nemo suscipit. Exercitationem, facilis explicabo!
+        Molestiae reiciendis adipisci temporibus porro fugit neque optio fugiat
+        quos, sunt similique sequi ipsa recusandae quas possimus. Voluptas
+        eveniet magni laboriosam doloribus ratione repellendus, aperiam mollitia
+        ex earum commodi quam facere animi nulla sunt ad maiores placeat
+        consequatur beatae quasi aspernatur tempore nisi enim! Neque, accusamus
+        consectetur. Aliquam facilis quos delectus nam qui, praesentium sapiente
+        atque repudiandae debitis recusandae perspiciatis nesciunt nobis dolorum
+        aliquid distinctio eligendi aperiam ab tenetur vel dolores suscipit quia
+        reiciendis nostrum? Quia, quos.
+      </p>
+    </div>
+  </body>
+</html>
