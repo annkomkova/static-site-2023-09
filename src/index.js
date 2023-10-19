@@ -1,1 +1,3 @@
-console.log('Heeeeeeey')
+import './index.css'
+
+console.log('Heeeey bro')
