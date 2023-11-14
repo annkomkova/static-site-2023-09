@@ -8,7 +8,9 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index.js',
+    theory: './src/theory.js',
+    adaptive: './src/adaptive.js'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -87,38 +89,59 @@ module.exports = {
       chunkFilename: '[id].[contenthash].css'
     }),
 
-    // Index
+    // Adaptive chunk
+    new HtmlWebpackPlugin({
+      template: './src/adaptive.html',
+      filename: './adaptive.html',
+      chunks: ['adaptive'] // Дублируем имя Chunks в массив, чтоб он подгружал
+    }),
+
+    // Theory chunk
+    new HtmlWebpackPlugin({
+      template: './src/theory.html',
+      filename: './theory.html',
+      chunks: ['theory'] // Дублируем имя Chunks в массив, чтоб он подгружал
+    }),
+
+    // Index chunk
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: './index.html'
+      filename: './index.html',
+      chunks: ['index']
     }),
 
     //Section
     new HtmlWebpackPlugin({
       template: './src/about.html',
-      filename: './about.html'
+      filename: './about.html',
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       template: './src/spaceobjects.html',
-      filename: './spaceobjects.html'
+      filename: './spaceobjects.html',
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       template: './src/spaceships.html',
-      filename: './spaceships.html'
+      filename: './spaceships.html',
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       template: './src/responsive-images.html',
-      filename: './responsive-images.html'
+      filename: './responsive-images.html',
+      chunks: ['index']
     }),
 
     // Article
     new HtmlWebpackPlugin({
       template: './src/spaceobjects/moon.html',
-      filename: './spaceobjects/moon.html'
+      filename: './spaceobjects/moon.html',
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       template: './src/spaceships/buran.html',
-      filename: './spaceships/buran.html'
+      filename: './spaceships/buran.html',
+      chunks: ['index']
     }),
 
     // Partials
