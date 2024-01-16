@@ -10,7 +10,8 @@ module.exports = {
   entry: {
     index: './src/index.js',
     theory: './src/theory.js',
-    adaptive: './src/adaptive.js'
+    adaptive: './src/adaptive.js',
+    dictionary: './src/dictionary.js'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -87,6 +88,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css'
+    }),
+
+    // Dictionary chunk
+    new HtmlWebpackPlugin({
+      template: './src/dictionary.html',
+      filename: './dictionary.html',
+      chunks: ['dictionary'] // Дублируем имя Chunks в массив, чтоб он подгружал
     }),
 
     // Adaptive chunk
