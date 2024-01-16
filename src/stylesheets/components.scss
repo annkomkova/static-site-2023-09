@@ -1,0 +1,89 @@
+.A_ADCUser {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &::before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background-image: url('./images/dictionary/Q_ADCSymbol.svg');
+  }
+  &::after {
+    content: '';
+    width: 36px;
+    height: 24px;
+    border-radius: 8px;
+    background-color: var(--white);
+    background-image: url('./images/dictionary/Q_ADCUserTextingIcon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+.A_Title {
+  height: 18px;
+  font-family: ADC;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+.A_Question {
+  padding: 12px 18px;
+  color: var(--acid-green);
+  background-color: var(--all-black);
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+}
+.A_answerMessage {
+  width: 218px;
+  background-color: var(--white);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 116%;
+  padding: 10px 12px;
+}
+.O_Story {
+  position: relative;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 568px;
+  padding: 52px 10px 22px 10px;
+  border-radius: 10px;
+  gap: 10px;
+
+  .A_ADCUser {
+    margin-left: 10px;
+  }
+  .A_Question {
+    width: fit-content;
+    align-self: flex-end;
+  }
+  .A_Title {
+    position: absolute;
+    left: 44px;
+    top: 52px;
+  }
+  .C_answerMessages {
+    width: 218px;
+    margin-left: 44px;
+
+    .A_answerMessage {
+      margin-top: 10px;
+    }
+  }
+}
+.S_Stories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 1000px;
+  margin: 0 auto;
+}
