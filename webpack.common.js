@@ -12,7 +12,8 @@ module.exports = {
     theory: './src/theory.js',
     adaptive: './src/adaptive.js',
     dictionary: './src/dictionary.js',
-    jsbasic: './src/jsbasic.js'
+    jsbasic: './src/jsbasic.js',
+    select: './src/select.js'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -89,6 +90,13 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css'
+    }),
+
+    // select
+    new HtmlWebpackPlugin({
+      template: './src/select.html',
+      filename: './select.html',
+      chunks: ['select'] // Дублируем имя Chunks в массив, чтоб он подгружал
     }),
 
     // jsbasic chunk
