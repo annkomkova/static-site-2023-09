@@ -98,6 +98,11 @@ module.exports = {
       filename: './select.html',
       chunks: ['select'] // Дублируем имя Chunks в массив, чтоб он подгружал
     }),
+    new HtmlWebpackPlugin({
+      template: './src/select2.html',
+      filename: './select2.html',
+      chunks: ['select'] // Дублируем имя Chunks в массив, чтоб он подгружал
+    }),
 
     // jsbasic chunk
     new HtmlWebpackPlugin({

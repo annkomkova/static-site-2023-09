@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+
+  &.dark {
+    background-color: #181818;
+    color: azure;
+  }
+
+  .openModal {
+    width: 100px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    margin: 50px;
+    border-radius: 20px;
+    background-color: cornflowerblue;
+    color: white;
+    cursor: pointer;
+  }
+  .modal {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &.visible {
+      display: block;
+    }
+
+    .modalFader {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+
+      .modalWindow {
+        position: relative;
+        width: 600px;
+        min-height: 100px;
+        border-radius: 20px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 40px;
+
+        .closeModal {
+          font-size: 30px;
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .switch {
+    display: inline-block;
+    position: relative;
+    margin: 50px;
+    width: 60px;
+    height: 34px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked + .slider {
+        background-color: cornflowerblue;
+      }
+      &:checked + .slider::before {
+        transform: translateX(26px);
+      }
+    }
+
+    .slider {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 34px;
+      background-color: #ccc;
+      transition: 0.4s;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 26px;
+        height: 26px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+    }
+  }
+
+  .A_selectInput {
+    width: 300px;
+    height: 44px;
+    padding: 0 39px 0 10px;
+    border-radius: 44px;
+    font-size: 18px;
+
+    &::placeholder {
+      color: cornflowerblue;
+    }
+  }
+  .A_selectDropdownButton {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    background-color: cornflowerblue;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .A_selectOptionListItem {
+    width: 300px;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 39px 0 10px;
+    font-size: 18px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
+    &:hover {
+      background-color: #181818;
+    }
+    &.active {
+      background-color: cornflowerblue;
+    }
+  }
+  .M_selectField {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .A_selectDropdownButton {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+  .O_Select {
+    margin: 50px;
+    width: 300px;
+
+    &.visible {
+      .C_selectOptionList {
+        display: block;
+      }
+    }
+
+    .C_selectOptionList {
+      display: none;
+      max-height: 300px;
+      overflow-y: scroll;
+      background-color: #090909;
+      border-radius: 0 0 20px 20px;
+    }
+  }
+}
