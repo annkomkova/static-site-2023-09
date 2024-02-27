@@ -1,0 +1,127 @@
+body.slider {
+  &.modal {
+    overflow: hidden;
+
+    .postModal {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  }
+
+  .postModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none; //display: none;
+
+    .fader {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .sliderButton {
+      z-index: 1;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 100px;
+    }
+
+    .post {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: 664px;
+      height: 664px;
+
+      .imageSlider {
+        width: 664px;
+        height: 664px;
+        overflow-x: scroll;
+
+        .rail {
+          display: flex;
+          width: 6640px;
+          height: 664px;
+
+          img,
+          div {
+            width: 664px;
+            height: 664px;
+
+            &:nth-of-type(odd) {
+              background-color: cornflowerblue;
+            }
+            &:nth-of-type(even) {
+              background-color: coral;
+            }
+          }
+        }
+      }
+
+      &.aside {
+        width: 996px;
+
+        .text {
+          width: 332px;
+        }
+      }
+
+      aside {
+        width: 0;
+        height: 664px;
+        background-color: white;
+        overflow: hidden;
+
+        .text {
+          width: 332px;
+          height: 664px;
+          background-color: aqua;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          padding: 14px;
+        }
+      }
+
+      .asideButton {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        border-radius: 100px;
+        position: absolute;
+        left: 664px;
+      }
+    }
+  }
+
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 960px;
+    margin: 0 auto;
+    padding: 60px 0;
+
+    .postTeaser {
+      width: 320px;
+      height: 320px;
+
+      &:nth-of-type(odd) {
+        background-color: cornflowerblue;
+      }
+      &:nth-of-type(even) {
+        background-color: coral;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -14,7 +14,8 @@ module.exports = {
     adaptive: './src/adaptive.js',
     dictionary: './src/dictionary.js',
     jsbasic: './src/jsbasic.js',
-    select: './src/select.js'
+    select: './src/select.js',
+    slider: './src/slider.js'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -117,6 +118,13 @@ module.exports = {
       template: './src/jsbasic.html',
       filename: './jsbasic.html',
       chunks: ['jsbasic'] // Дублируем имя Chunks в массив, чтоб он подгружал
+    }),
+
+    // slider chunk
+    new HtmlWebpackPlugin({
+      template: './src/slider.html',
+      filename: './slider.html',
+      chunks: ['slider'] // Дублируем имя Chunks в массив, чтоб он подгружал
     }),
 
     // Dictionary chunk
