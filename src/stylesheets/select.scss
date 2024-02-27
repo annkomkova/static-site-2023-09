@@ -30,7 +30,7 @@ body {
     top: 0;
     left: 0;
 
-    &.visible {
+    &.active {
       display: block;
     }
 
@@ -114,7 +114,41 @@ body {
       color: cornflowerblue;
     }
   }
-  .A_selectDropdownButton {
+  .C_multiSelectInput {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 550px;
+    min-height: 44px;
+    max-height: 172px;
+    padding: 10px 39px 10px 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: white;
+    border: 1px solid black;
+    color: cornflowerblue;
+    line-height: 44px;
+    overflow-y: scroll;
+
+    .A_multiSelectChip {
+      display: flex;
+      gap: 4px;
+      background-color: cornflowerblue;
+      color: white;
+      border-radius: 44px;
+      padding: 0 8px;
+      line-height: 40px;
+
+      .Q_multiSelectChipButton::after {
+        content: '\00D7';
+        color: #ccc;
+        line-height: 43px;
+        font-size: 26px;
+      }
+    }
+  }
+  .A_selectDropdownButton,
+  .A_multiSelectDropdownButton {
     width: 34px;
     height: 34px;
     line-height: 34px;
@@ -141,6 +175,23 @@ body {
       background-color: cornflowerblue;
     }
   }
+  .A_multiSelectOptionListItem {
+    width: 550px;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 39px 0 10px;
+    font-size: 18px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
+    &:hover {
+      background-color: #181818;
+    }
+    &.active {
+      background-color: cornflowerblue;
+    }
+  }
   .M_selectField {
     position: relative;
     width: 100%;
@@ -152,17 +203,47 @@ body {
       right: 5px;
     }
   }
+  .M_multiSelectField {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .A_multiSelectDropdownButton {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
   .O_Select {
     margin: 50px;
     width: 300px;
 
-    &.visible {
+    &.focus {
       .C_selectOptionList {
         display: block;
       }
     }
 
     .C_selectOptionList {
+      display: none;
+      max-height: 300px;
+      overflow-y: scroll;
+      background-color: #090909;
+      border-radius: 0 0 20px 20px;
+    }
+  }
+
+  .O_multiSelect {
+    margin: 50px;
+    width: 550px;
+
+    &.focus {
+      .C_multiSelectOptionList {
+        display: block;
+      }
+    }
+
+    .C_multiSelectOptionList {
       display: none;
       max-height: 300px;
       overflow-y: scroll;
