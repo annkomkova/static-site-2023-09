@@ -1,0 +1,63 @@
+.S_navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.S_content {
+  width: 1000px;
+  margin: 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  .O_contentCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+}
+.O_contentCard {
+  width: 320px;
+  min-height: 350px;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  padding-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  .C_contentCardTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 10px;
+  }
+}
+.A_contentCardCover {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+.A_contentCardTitle {
+  font-size: 21px;
+  line-height: 28px;
+  padding: 0 10px;
+}
+.A_contentCardDescription {
+  font-size: 16px;
+  line-height: 22px;
+  padding: 0 10px;
+}
+.A_contentCardTag {
+  background-color: cornflowerblue;
+  color: white;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 3px 8px;
+  border-radius: 12px;
+}

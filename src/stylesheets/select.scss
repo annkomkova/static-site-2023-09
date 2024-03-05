@@ -16,7 +16,7 @@ body {
     height: 44px;
     line-height: 44px;
     text-align: center;
-    margin: 50px;
+    // margin: 50px;
     border-radius: 20px;
     background-color: cornflowerblue;
     color: white;
@@ -62,7 +62,7 @@ body {
   .switch {
     display: inline-block;
     position: relative;
-    margin: 50px;
+    // margin: 50px;
     width: 60px;
     height: 34px;
 
@@ -206,7 +206,7 @@ body {
   .M_multiSelectField {
     position: relative;
     width: 100%;
-    height: 100%;
+    // height: 100%;
 
     .A_multiSelectDropdownButton {
       position: absolute;
@@ -215,7 +215,7 @@ body {
     }
   }
   .O_Select {
-    margin: 50px;
+    // margin: 50px;
     width: 300px;
 
     &.focus {
@@ -234,7 +234,7 @@ body {
   }
 
   .O_multiSelect {
-    margin: 50px;
+    // margin: 50px;
     width: 550px;
 
     &.focus {
