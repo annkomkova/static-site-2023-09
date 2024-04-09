@@ -16,7 +16,8 @@ module.exports = {
     jsbasic: './src/jsbasic.js',
     select: './src/select.js',
     select2: './src/select2.js',
-    slider: './src/slider.js'
+    slider: './src/slider.js',
+    searchVanilla: './src/search-vanilla.js'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -90,12 +91,22 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: 'source', to: 'dest' },
-    //     { from: 'other', to: 'public' }
-    //   ]
-    // }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/share/'),
+          to: path.resolve(__dirname, 'dev_build/share')
+        },
+        {
+          from: path.resolve(__dirname, 'src/images/colors/'),
+          to: path.resolve(__dirname, 'dev_build/images/colors')
+        },
+        {
+          from: path.resolve(__dirname, 'src/images/colors/'),
+          to: path.resolve(__dirname, 'docs/images/colors')
+        }
+      ]
+    }),
 
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
@@ -140,6 +151,13 @@ module.exports = {
       template: './src/adaptive.html',
       filename: './adaptive.html',
       chunks: ['adaptive'] // Дублируем имя Chunks в массив, чтоб он подгружал
+    }),
+
+    // search vanilla
+    new HtmlWebpackPlugin({
+      template: './src/search-vanilla.html',
+      filename: './search-vanilla.html',
+      chunks: ['searchVanilla'] // Дублируем имя Chunks в массив, чтоб он подгружал
     }),
 
     // Theory chunk
