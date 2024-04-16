@@ -1,5 +1,5 @@
 import './search-vanilla.css'
-import { getPostTeasers } from './search-vanilla-data'
+import { getPostTeasers } from './search-vanilla-data.js'
 
 let content
 
