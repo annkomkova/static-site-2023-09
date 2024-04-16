@@ -11,6 +11,10 @@ const workshops = [
   {
     date: '17 APR 2024',
     title: 'React basics workshop 09'
+  },
+  {
+    date: '18 APR 2024',
+    title: 'React basics workshop 10'
   }
 ]
 
@@ -18,13 +22,13 @@ export default class O_Container extends React.Component {
   render() {
     const cards = workshops.map((workshop, i) => {
       return (
-        <M_Card key={i} title={workshop.title} description={workshop.date} />
+        <M_Card key={i} name={workshop.title} description={workshop.date} />
       )
     })
 
     return (
       <div className="O_Container">
-        <A_Title title="Title" />
+        <A_Title name="Title" />
         {cards}
       </div>
     )

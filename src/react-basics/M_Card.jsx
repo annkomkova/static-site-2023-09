@@ -6,7 +6,7 @@ export default class M_Card extends React.Component {
   render() {
     return (
       <div className="M_Card">
-        <A_Title title={this.props.title} />
+        <A_Title name={this.props.name} />
         <p>{this.props.description}</p>
       </div>
     )
