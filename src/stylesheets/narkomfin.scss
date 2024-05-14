@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+.mainMenu {
+  width: 324px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 1px solid black;
+  backdrop-filter: blur(30px);
+
+  .cafe,
+  .bookshop {
+    height: 72px;
+  }
+  .about,
+  .visit,
+  .tours {
+    height: calc((100% - 144px) / 3);
+  }
+
+  div {
+    border-bottom: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Loos', sans-serif;
+    text-transform: uppercase;
+
+    &.active {
+      background-color: #222;
+
+      a {
+        color: white;
+
+        &::before {
+          filter: invert(1);
+        }
+      }
+    }
+
+    h2 {
+      font-size: 30px;
+    }
+    li {
+      font-size: 15px;
+
+      a::before {
+        top: -8px;
+      }
+    }
+    h2:hover a::before,
+    li:hover a::before {
+      opacity: 1;
+      transform: translateX(5px);
+      transition: all ease 0.3s;
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  a {
+    color: #222;
+    text-decoration: none;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &::before {
+      content: '';
+      width: 30px;
+      height: 30px;
+      background-image: url('https://img.icons8.com/ios/100/right--v1.png');
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+      transition: all ease 0.3s;
+    }
+  }
+}
+
+.header {
+  width: 60%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.footer {
+  width: calc(100% - 324px);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  border-top: 1px solid black;
+  backdrop-filter: blur(30px);
+  font-family: 'Loos', sans-serif;
+}
+
+.content {
+  width: 40%;
+  height: 100vh;
+  overflow-y: scroll;
+  border-left: 1px solid black;
+  backdrop-filter: blur(30px);
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .contentHeader {
+    width: 100%;
+    height: 72px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .header {
+      position: relative;
+      width: 70%;
+      padding: 0;
+    }
+
+    .closeButton {
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      border-radius: 100%;
+      cursor: pointer;
+      transition: all ease 0.8s;
+
+      &:hover {
+        background-color: #222;
+        transition: all ease 0.3s;
+      }
+    }
+  }
+  .contentMain {
+    font-family: 'Loos', sans-serif;
+    margin: 20px;
+
+    h1 {
+      font-size: 56px;
+    }
+    h2 {
+      font-size: 36px;
+      margin: 20px 0;
+    }
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+
+      &.bold {
+        font-weight: bold;
+        font-size: 24px;
+      }
+    }
+  }
+}
+.none {
+  display: none;
+}

@@ -3,11 +3,36 @@ import './narkomfin.css'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/Addons.js'
 import { OrbitControls } from 'three/examples/jsm/Addons.js'
-import { log } from 'three/examples/jsm/nodes/Nodes.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   initThree()
+  initNavigation()
 })
+
+function initNavigation() {
+  const links = document.querySelectorAll('.mainMenu a')
+  const closeButton = document.querySelector('.closeButton')
+  const content = document.querySelector('.content')
+  const header = document.querySelector('.header')
+
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      let linkId = link.href.split('#')[1]
+
+      document.getElementById(linkId).classList.remove('none')
+      document.querySelector(`.${linkId}`).classList.add('active')
+      header.classList.add('none')
+      content.classList.remove('none')
+
+      closeButton.addEventListener('click', () => {
+        header.classList.remove('none')
+        content.classList.add('none')
+        document.getElementById(linkId).classList.add('none')
+        document.querySelector(`.${linkId}`).classList.remove('active')
+      })
+    })
+  })
+}
 
 function initThree() {
   console.log('Update')
