@@ -18,7 +18,8 @@ module.exports = {
     select2: './src/select2.js',
     slider: './src/slider.js',
     searchVanilla: './src/search-vanilla.js',
-    reactBasics: './src/react-basics.jsx'
+    reactBasics: './src/react-basics.jsx',
+    narkomfin: './src/narkomfin.js'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -105,6 +106,22 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/images/colors/'),
           to: path.resolve(__dirname, 'docs/images/colors')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-narkomfin'),
+          to: path.resolve(__dirname, 'dev_build/model-narkomfin')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-narkomfin'),
+          to: path.resolve(__dirname, 'docs/model-narkomfin')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-drone'),
+          to: path.resolve(__dirname, 'dev_build/model-drone')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-drone'),
+          to: path.resolve(__dirname, 'docs/model-drone')
         }
       ]
     }),
@@ -119,6 +136,12 @@ module.exports = {
       template: './src/react-basics.html',
       filename: './react-basics.html',
       chunks: ['reactBasics']
+    }),
+    // Three
+    new HtmlWebpackPlugin({
+      template: './src/narkomfin.html',
+      filename: './narkomfin.html',
+      chunks: ['narkomfin']
     }),
     // select
     new HtmlWebpackPlugin({
