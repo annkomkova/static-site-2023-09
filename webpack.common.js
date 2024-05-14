@@ -16,7 +16,11 @@ module.exports = {
     jsbasic: './src/jsbasic.js',
     select: './src/select.js',
     select2: './src/select2.js',
-    slider: './src/slider.js'
+    slider: './src/slider.js',
+    searchVanilla: './src/search-vanilla.js',
+    reactBasics: './src/react-basics.jsx',
+    narkomfin: './src/narkomfin.js',
+    searchReact: './src/searchbar.jsx'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -90,70 +94,115 @@ module.exports = {
     ]
   },
   plugins: [
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: 'source', to: 'dest' },
-    //     { from: 'other', to: 'public' }
-    //   ]
-    // }),
+    new CopyPlugin({
+      patterns: [
+        // {
+        //   from: path.resolve(__dirname, 'src/share/'),
+        //   to: path.resolve(__dirname, 'dev_build/share')
+        // },
+        {
+          from: path.resolve(__dirname, 'src/images/colors/'),
+          to: path.resolve(__dirname, 'dev_build/images/colors')
+        },
+        {
+          from: path.resolve(__dirname, 'src/images/colors/'),
+          to: path.resolve(__dirname, 'docs/images/colors')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-narkomfin'),
+          to: path.resolve(__dirname, 'dev_build/model-narkomfin')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-narkomfin'),
+          to: path.resolve(__dirname, 'docs/model-narkomfin')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-drone'),
+          to: path.resolve(__dirname, 'dev_build/model-drone')
+        },
+        {
+          from: path.resolve(__dirname, 'src/model-drone'),
+          to: path.resolve(__dirname, 'docs/model-drone')
+        }
+      ]
+    }),
 
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
       chunkFilename: '[id].[contenthash].css'
     }),
 
+    // React
+    new HtmlWebpackPlugin({
+      template: './src/react-basics.html',
+      filename: './react-basics.html',
+      chunks: ['reactBasics']
+    }),
+    // Three
+    new HtmlWebpackPlugin({
+      template: './src/narkomfin.html',
+      filename: './narkomfin.html',
+      chunks: ['narkomfin']
+    }),
     // select
     new HtmlWebpackPlugin({
       template: './src/select.html',
       filename: './select.html',
-      chunks: ['select'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['select']
     }),
     new HtmlWebpackPlugin({
       template: './src/select2.html',
       filename: './select2.html',
-      chunks: ['select2'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['select2']
     }),
 
     // jsbasic chunk
     new HtmlWebpackPlugin({
       template: './src/jsbasic.html',
       filename: './jsbasic.html',
-      chunks: ['jsbasic'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['jsbasic']
     }),
 
     // slider chunk
     new HtmlWebpackPlugin({
       template: './src/slider.html',
       filename: './slider.html',
-      chunks: ['slider'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['slider']
     }),
 
     // Dictionary chunk
     new HtmlWebpackPlugin({
       template: './src/dictionary.html',
       filename: './dictionary.html',
-      chunks: ['dictionary'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['dictionary']
     }),
 
     // Adaptive chunk
     new HtmlWebpackPlugin({
       template: './src/adaptive.html',
       filename: './adaptive.html',
-      chunks: ['adaptive'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['adaptive']
+    }),
+
+    // search vanilla
+    new HtmlWebpackPlugin({
+      template: './src/search-vanilla.html',
+      filename: './search-vanilla.html',
+      chunks: ['searchVanilla']
     }),
 
     // Theory chunk
     new HtmlWebpackPlugin({
       template: './src/theory.html',
       filename: './theory.html',
-      chunks: ['theory'] // Дублируем имя Chunks в массив, чтоб он подгружал
+      chunks: ['theory']
     }),
 
     // Index chunk
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      chunks: ['index']
+      chunks: ['index', 'searchReact']
     }),
 
     //Section
@@ -195,6 +244,14 @@ module.exports = {
       {
         path: path.join(__dirname, './src/partials/analytics.html'),
         location: 'analytics',
+        template_filename: '*',
+        priority: 'replace'
+      }
+    ]),
+    new HtmlWebpackPartialsPlugin([
+      {
+        path: path.join(__dirname, './src/partials/menubar.html'),
+        location: 'menubar',
         template_filename: '*',
         priority: 'replace'
       }

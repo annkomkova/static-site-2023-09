@@ -1,0 +1,15 @@
+.S_MenuBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  background-color: white;
+  font-family: 'PT Root UI', sans-serif;
+  border-bottom: 1px solid black;
+
+  .C_MainMenu {
+    display: flex;
+    gap: 20px;
+  }
+}

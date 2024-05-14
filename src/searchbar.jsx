@@ -1,0 +1,8 @@
+import './searchbar.scss'
+import React from 'react'
+import * as ReactDOM from 'react-dom'
+
+import O_SearchBar from './components/O_SearchBar/O_Searchbar.jsx'
+
+const root = ReactDOM.createRoot(document.querySelector('.S_MenuBar .W_Search'))
+root.render(<O_SearchBar />)
