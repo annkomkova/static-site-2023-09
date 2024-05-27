@@ -188,7 +188,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/search-vanilla.html',
       filename: './search-vanilla.html',
-      chunks: ['searchVanilla']
+      chunks: ['searchVanilla', 'searchReact']
     }),
 
     // Theory chunk
