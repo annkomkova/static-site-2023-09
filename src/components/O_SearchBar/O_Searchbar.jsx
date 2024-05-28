@@ -3,16 +3,18 @@ import React from 'react'
 import { getPostTeasers } from '../../search-vanilla-data.js'
 
 import M_SearchForm from '../M_SearchForm/M_SearchForm.jsx'
-import M_PostTeaser from '../M_PostTeaser/M_PostTeaser.jsx'
+import M_PostSuggestion from '../M_PostSuggestion/M_PostSuggestion.jsx'
 
 export default class O_SearchBar extends React.Component {
   constructor(props) {
     super(props)
 
+    const { searchInputValue } = this.props
+
     this.state = {
       isSearchButtonDisabled: true,
-      searchInputValue: '',
-      postTeasers: []
+      postTeasers: [],
+      searchInputValue
     }
   }
 
@@ -47,11 +49,11 @@ export default class O_SearchBar extends React.Component {
       // const separator = '.adc.ac/'
       const url = window.location.href.split(separator)[0]
       window.location.href =
-        url + separator + 'search-vanilla.html?request=' + searchInputValue
+        url + separator + 'search.html?request=' + searchInputValue
     }
   }
 
-  renderPostTeasers = () => {
+  renderPostSuggestions = () => {
     const { postTeasers } = this.state
     let posts = []
     const searchInputValue = this.state.searchInputValue.toLowerCase()
@@ -78,7 +80,7 @@ export default class O_SearchBar extends React.Component {
         description.includes(searchInputValue)
       ) {
         posts.push(
-          <M_PostTeaser
+          <M_PostSuggestion
             title={title}
             description={description}
             key={teaser.id}
@@ -88,7 +90,7 @@ export default class O_SearchBar extends React.Component {
       }
     })
 
-    return <div className="C_PostTeasers">{posts}</div>
+    return <div className="C_PostSuggestions">{posts}</div>
   }
 
   render() {
@@ -103,7 +105,9 @@ export default class O_SearchBar extends React.Component {
           handleSearchSubmit={this.handleSearchSubmit}
         />
 
-        {searchInputValue.length >= 3 && this.renderPostTeasers()}
+        {searchInputValue.length >= 3 &&
+          !isSearchButtonDisabled &&
+          this.renderPostSuggestions()}
       </div>
     )
   }
