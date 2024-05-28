@@ -79,21 +79,23 @@ function SearchContent(requestText) {
   //запускаем рендер
   const contentItemsContainer = document.querySelector('.S_Content')
   contentItemsContainer.innerHTML = ''
-
+  // const requestText = requestText.toLowerCase()
   let contentItemIds = []
 
   content.forEach((contentItem) => {
     // обрабатываем контент. для каждой карточки нам нужно сотворить что-то страшное
     const nbspRegex = /[\u202F\u00A0]/gm //ищет неразрывные пробелы (`\u202F` и `\u00A0`) в глобальном контексте (`gm`).
-
     const punctuationRegex = /[.,\/#!$%\^&\*;:{}=\-_`~()]/gm //ищет знаки пунктуации в глобальном контексте.
-    let { title, description } = contentItem
 
-    title = title.replaceAll(nbspRegex, ' ') //замена всех найденных неразрывных пробелов (из `nbspRegex`) в строке `title` на обычные пробелы.
-    title = title.replaceAll(punctuationRegex, '') //Здесь происходит удаление всех знаков пунктуации (из `punctuationRegex`) из строки `title`.
+    const title = contentItem.title
+      .replaceAll(nbspRegex, ' ')
+      .replaceAll(punctuationRegex, '')
+      .toLowerCase()
 
-    description = description.replaceAll(nbspRegex, ' ') //замена всех найденных неразрывных пробелов (из `nbspRegex`) в строке `description` на обычные пробелы.
-    description = description.replaceAll(punctuationRegex, '') //удаление всех знаков пунктуации (из `punctuationRegex`) из строки `description`.
+    const description = contentItem.description
+      .replaceAll(nbspRegex, ' ')
+      .replaceAll(punctuationRegex, '')
+      .toLowerCase()
 
     if (requestText.length >= 3) {
       if (title.includes(requestText) || description.includes(requestText)) {
@@ -175,3 +177,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSearch()
   })
 })
+
+//comment

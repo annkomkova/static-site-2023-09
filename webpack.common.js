@@ -20,7 +20,8 @@ module.exports = {
     searchVanilla: './src/search-vanilla.js',
     reactBasics: './src/react-basics.jsx',
     narkomfin: './src/narkomfin.js',
-    searchReact: './src/searchbar.jsx'
+    searchBar: './src/searchbar.jsx',
+    search: './src/search.jsx'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -184,11 +185,16 @@ module.exports = {
       chunks: ['adaptive']
     }),
 
-    // search vanilla
+    // search
     new HtmlWebpackPlugin({
       template: './src/search-vanilla.html',
       filename: './search-vanilla.html',
-      chunks: ['searchVanilla']
+      chunks: ['searchVanilla', 'searchBar']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/search.html',
+      filename: './search.html',
+      chunks: ['search', 'searchBar']
     }),
 
     // Theory chunk
@@ -202,7 +208,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: './index.html',
-      chunks: ['index', 'searchReact']
+      chunks: ['index', 'searchBar', 'search']
     }),
 
     //Section

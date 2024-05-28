@@ -1,0 +1,42 @@
+.M_PostTeaser {
+  margin: 10px;
+  text-decoration: none;
+  width: 320px;
+  min-height: 350px;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(40, 40, 40);
+  font-family: Arial, Helvetica, sans-serif;
+
+  .A_Text {
+    &.h3 {
+      // font-weight: bold;
+      text-transform: capitalize;
+      font-size: 21px;
+      padding: 0 10px;
+    }
+
+    &.p {
+      font-size: 16px;
+      padding: 0 10px;
+    }
+
+    &.tag {
+      background-color: cornflowerblue;
+      color: white;
+      font-size: 12px;
+      line-height: 12px;
+      padding: 2px 5px;
+      border-radius: 12px;
+    }
+  }
+  .C_postTeaserTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 10px 10px;
+  }
+}

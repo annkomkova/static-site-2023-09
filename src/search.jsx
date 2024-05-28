@@ -1,8 +1,8 @@
-import './searchbar.scss'
+import './search.css'
 import React from 'react'
 import * as ReactDOM from 'react-dom/client'
 
-import O_SearchBar from './components/O_SearchBar/O_Searchbar.jsx'
+import S_SearchContent from './components/S_SearchContent/S_SearchContent.jsx'
 
 console.clear()
 
@@ -12,10 +12,10 @@ function getSearchRequest() {
 
   if (searchParams.has('request')) {
     return searchParams.get('request')
-  } else {
-    return ''
   }
 }
 
-const root = ReactDOM.createRoot(document.querySelector('.S_MenuBar .W_Search'))
-root.render(<O_SearchBar searchInputValue={getSearchRequest()} />)
+const root = ReactDOM.createRoot(
+  document.querySelector('.W_ContentReactModule')
+)
+root.render(<S_SearchContent searchInputValue={getSearchRequest()} />)
