@@ -1,4 +1,4 @@
-import './M_PostSuggestion.scss'
+// import './M_PostSuggestion.scss'
 import React from 'react'
 
 import A_Text from '../A_Text/A_Text.jsx'

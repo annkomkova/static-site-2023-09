@@ -20,7 +20,7 @@ module.exports = {
     searchVanilla: './src/search-vanilla.js',
     reactBasics: './src/react-basics.jsx',
     narkomfin: './src/narkomfin.js',
-    searchBar: './src/searchbar.jsx',
+    menuBar: './src/menubar.jsx',
     search: './src/search.jsx'
   },
   output: {
@@ -189,12 +189,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/search-vanilla.html',
       filename: './search-vanilla.html',
-      chunks: ['searchVanilla', 'searchBar']
+      chunks: ['searchVanilla', 'menuBar']
     }),
     new HtmlWebpackPlugin({
       template: './src/search.html',
       filename: './search.html',
-      chunks: ['search', 'searchBar']
+      chunks: ['search', 'menuBar']
     }),
 
     // Theory chunk
@@ -206,9 +206,9 @@ module.exports = {
 
     // Index chunk
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.ejs',
       filename: './index.html',
-      chunks: ['index', 'searchBar', 'search']
+      chunks: ['index', 'menuBar', 'search']
     }),
 
     //Section
@@ -218,14 +218,14 @@ module.exports = {
       chunks: ['index']
     }),
     new HtmlWebpackPlugin({
-      template: './src/spaceobjects.html',
+      template: './src/spaceobjects.ejs',
       filename: './spaceobjects.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
     new HtmlWebpackPlugin({
-      template: './src/spaceships.html',
+      template: './src/spaceships.ejs',
       filename: './spaceships.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
     new HtmlWebpackPlugin({
       template: './src/responsive-images.html',
@@ -235,14 +235,14 @@ module.exports = {
 
     // Article
     new HtmlWebpackPlugin({
-      template: './src/spaceobjects/moon.html',
+      template: './src/spaceobjects/moon.ejs',
       filename: './spaceobjects/moon.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
     new HtmlWebpackPlugin({
-      template: './src/spaceships/buran.html',
+      template: './src/spaceships/buran.ejs',
       filename: './spaceships/buran.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
 
     // Partials

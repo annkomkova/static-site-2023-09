@@ -1,0 +1,126 @@
+.S_MenuBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  background-color: white;
+  font-family: 'PT Root UI', sans-serif;
+  border-bottom: 1px solid black;
+
+  .C_MainMenu {
+    display: flex;
+    gap: 20px;
+  }
+}
+.S_SearchContent {
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px;
+}
+.O_SearchBar {
+  font-family: 'PT Root UI', sans-serif;
+  .C_PostSuggestions {
+    position: absolute;
+    background-color: white;
+    overflow-y: scroll;
+    max-height: 360px;
+  }
+}
+.M_SearchForm {
+  display: flex;
+  position: relative;
+}
+.M_PostTeaser {
+  margin: 10px;
+  text-decoration: none;
+  width: 320px;
+  min-height: 350px;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgb(40, 40, 40);
+  font-family: Arial, Helvetica, sans-serif;
+
+  .A_Text {
+    &.h3 {
+      // font-weight: bold;
+      text-transform: capitalize;
+      font-size: 21px;
+      padding: 0 10px;
+    }
+
+    &.p {
+      font-size: 16px;
+      padding: 0 10px;
+    }
+
+    &.tag {
+      background-color: cornflowerblue;
+      color: white;
+      font-size: 12px;
+      line-height: 12px;
+      padding: 2px 5px;
+      border-radius: 12px;
+    }
+  }
+  .C_postTeaserTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 10px 10px;
+  }
+}
+.M_PostSuggestion {
+  margin: 10px;
+  color: black;
+  text-decoration: none;
+
+  .A_Text {
+    &.h3 {
+      font-weight: bold;
+    }
+
+    &.p {
+      margin-top: 4px;
+    }
+  }
+}
+.A_Image {
+  &.postTeaser {
+    border-radius: 20px 20px 0 0;
+  }
+}
+.A_Button {
+  cursor: pointer;
+
+  &.primary {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: cornflowerblue;
+    color: white;
+    user-select: none;
+
+    &.disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  &.resetField {
+    width: 20px;
+    color: black;
+    position: absolute;
+    font-weight: 500;
+    top: 12px;
+    left: 126px;
+  }
+}

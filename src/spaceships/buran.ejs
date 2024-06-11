@@ -1,3 +1,5 @@
+<% const { menubar } = require('../menubar.js') %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +8,7 @@
     <title>Буран</title>
   </head>
   <body class="article">
-    <!-- <analytics></analytics> -->
+    <div class="S_MenuBar"><%= menubar %></div>
     <div>
       <ul>
         <li><a href="/">На главную</a></li>
@@ -57,16 +59,7 @@
       </p>
       <img
         sizes="(max-width: 3000px) 100vw, 3000px"
-        srcset="
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_300.webp   300w,
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_1136.webp 1136w,
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_1586.webp 1586w,
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_1892.webp 1892w,
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_2276.webp 2276w,
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_2729.webp 2729w,
-          ../images/buran_fly/buran_fly_drdyet_c_scale,w_3000.webp 3000w
-        "
-        src="../images/buran_fly/buran_fly_drdyet_c_scale,w_3000.webp"
+        src="<%=require('../images/buran_fly/buran_fly_drdyet_c_scale,w_3000.webp')%>"
         alt="корабль летит над облаками"
       />
       <p>Программа имеет свою предысторию[6]:</p>
