@@ -3,9 +3,19 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const SitemapPlugin = require('sitemap-webpack-plugin').default
+const StaticSourceData = require('static-source-data')
 
 const webpack = require('webpack')
 const path = require('path')
+
+const paths = [
+  '/',
+  '/spaceobjects.html/',
+  '/spaceobjects/moon.html/',
+  '/spaceships.html/',
+  '/spaceships/buran.html/'
+]
 
 module.exports = {
   entry: {
@@ -95,6 +105,17 @@ module.exports = {
     ]
   },
   plugins: [
+    new StaticSourceData({
+      // testData: 'https://catfact.ninja/fact',
+      indexData: {
+        url: 'https://api.airtable.com/v0/appePrphSXY2TX8TD/teasers',
+        headers: {
+          Authorization:
+            'Bearer pat7rZ3bNn1doX7yx.e3a053db849dbc90266ee4437df084f90e6a245c626138ea6a63c9859661b5c9'
+        }
+      }
+    }),
+    new SitemapPlugin({ base: 'https://adc.ac.com', paths }),
     new CopyPlugin({
       patterns: [
         // {
