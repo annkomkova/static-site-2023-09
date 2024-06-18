@@ -1,0 +1,17 @@
+<!--prettier-ignore-->
+<% const { menubar } = require('./menubar.js') %> 
+<% const { content } = require('./index.js') %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заглушка</title>
+    <analytics></analytics>
+  </head>
+  <body>
+    <div class="S_MenuBar"><%= menubar %></div>
+    <%= content %>
+  </body>
+</html>

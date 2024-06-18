@@ -1,0 +1,41 @@
+.S_LandingContent {
+  width: 80%;
+  margin: 0 auto;
+
+  .O_LandingCategory {
+    font-family: Loos, sans-serif;
+    margin-top: 20px;
+
+    h2 {
+      font-weight: 600;
+      font-size: 32px;
+      text-transform: capitalize;
+      margin: 20px 0;
+    }
+
+    .W_LandingPostTeasers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .M_LandingPostTeaser {
+        width: 25%;
+        border: 1px solid #222;
+        border-radius: 20px;
+        text-decoration: none;
+
+        .A_Image {
+          width: 100%;
+        }
+
+        .A_Text {
+          text-decoration: none;
+          text-align: center;
+          color: black;
+          font-size: 18px;
+          margin: 20px;
+        }
+      }
+    }
+  }
+}

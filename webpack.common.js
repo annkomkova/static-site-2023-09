@@ -3,9 +3,19 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const SitemapPlugin = require('sitemap-webpack-plugin').default
+const StaticSourceData = require('static-source-data')
 
 const webpack = require('webpack')
 const path = require('path')
+
+const paths = [
+  '/',
+  '/spaceobjects.html/',
+  '/spaceobjects/moon.html/',
+  '/spaceships.html/',
+  '/spaceships/buran.html/'
+]
 
 module.exports = {
   entry: {
@@ -20,7 +30,7 @@ module.exports = {
     searchVanilla: './src/search-vanilla.js',
     reactBasics: './src/react-basics.jsx',
     narkomfin: './src/narkomfin.js',
-    searchBar: './src/searchbar.jsx',
+    menuBar: './src/menubar.jsx',
     search: './src/search.jsx'
   },
   output: {
@@ -95,6 +105,17 @@ module.exports = {
     ]
   },
   plugins: [
+    new StaticSourceData({
+      // testData: 'https://catfact.ninja/fact',
+      indexData: {
+        url: 'https://api.airtable.com/v0/appePrphSXY2TX8TD/teasers',
+        headers: {
+          Authorization:
+            'Bearer pat7rZ3bNn1doX7yx.e3a053db849dbc90266ee4437df084f90e6a245c626138ea6a63c9859661b5c9'
+        }
+      }
+    }),
+    new SitemapPlugin({ base: 'https://adc.ac.com', paths }),
     new CopyPlugin({
       patterns: [
         // {
@@ -189,12 +210,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/search-vanilla.html',
       filename: './search-vanilla.html',
-      chunks: ['searchVanilla', 'searchBar']
+      chunks: ['searchVanilla', 'menuBar']
     }),
     new HtmlWebpackPlugin({
       template: './src/search.html',
       filename: './search.html',
-      chunks: ['search', 'searchBar']
+      chunks: ['search', 'menuBar']
     }),
 
     // Theory chunk
@@ -206,9 +227,9 @@ module.exports = {
 
     // Index chunk
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.ejs',
       filename: './index.html',
-      chunks: ['index', 'searchBar', 'search']
+      chunks: ['index', 'menuBar', 'search']
     }),
 
     //Section
@@ -218,14 +239,14 @@ module.exports = {
       chunks: ['index']
     }),
     new HtmlWebpackPlugin({
-      template: './src/spaceobjects.html',
+      template: './src/spaceobjects.ejs',
       filename: './spaceobjects.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
     new HtmlWebpackPlugin({
-      template: './src/spaceships.html',
+      template: './src/spaceships.ejs',
       filename: './spaceships.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
     new HtmlWebpackPlugin({
       template: './src/responsive-images.html',
@@ -235,14 +256,14 @@ module.exports = {
 
     // Article
     new HtmlWebpackPlugin({
-      template: './src/spaceobjects/moon.html',
+      template: './src/spaceobjects/moon.ejs',
       filename: './spaceobjects/moon.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
     new HtmlWebpackPlugin({
-      template: './src/spaceships/buran.html',
+      template: './src/spaceships/buran.ejs',
       filename: './spaceships/buran.html',
-      chunks: ['index']
+      chunks: ['index', 'menuBar']
     }),
 
     // Partials

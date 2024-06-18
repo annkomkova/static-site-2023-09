@@ -1,4 +1,4 @@
-import './A_Image.scss'
+// import './A_Image.scss'
 import React from 'react'
 import classNames from 'classnames'
 
